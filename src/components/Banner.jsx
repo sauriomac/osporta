@@ -12,7 +12,7 @@ const Banner = () => {
         <h1 className="ml-10  lg:text-6xl md:text-4xl text-left text-white font-mono h-30">Im RODRIGO ESPINOZA</h1>
         
         <Typical className=" lg:text-3xl md:text-2xl text-white bold font-sans ml-10"
-          steps={['Im frontend developer', 1000, 'Im python developers', 500]}
+          steps={['Im Frontend Developer', 1000, 'Im Python Developer', 500]}
           loop={Infinity}
           wrapper="p"
         />
