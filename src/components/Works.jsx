@@ -13,6 +13,10 @@ import {
 const Works = () => {
     const list = [
         {
+            id: "all",
+            title: "All"
+        },
+        {
             id: "vue",
             title: "Vue"
         },
@@ -28,10 +32,7 @@ const Works = () => {
         //     id: "flask",
         //     title: "Flask"
         // },
-         {
-             id: "all",
-             title: "All"
-         }
+         
     ]
     const [select, setselect] = useState("vue");
     const [data, setData] = useState([]);
