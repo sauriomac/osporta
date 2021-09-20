@@ -188,8 +188,8 @@ const Contacto = () => {
                   className="lg opacity-50 text-white bg-gray-300 border-4 border-6 border-indigo-200 rounded-lg p-1 m-1"
                   key={item.id}
                 >
-                  <p>Re:{item.name}</p>
-                  <p>To: lrodr@ddd.com</p>
+                  <p>To:{`${(item.name).slice(0,7)}`}...</p>
+                  <p>Re:{item.email}</p>
                   <p>Date:{item.fecha}</p>
                 </li>
               ))}
