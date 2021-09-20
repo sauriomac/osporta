@@ -3,6 +3,12 @@ import { db } from "../firebase/firebase.js";
 import { FaInbox, FaShare } from "react-icons/fa";
 import { IoPaperPlaneSharp } from "react-icons/io5";
 
+import moment from 'moment';
+
+    
+    
+
+
 const Contacto = () => {
   const [Emails, setEmails] = useState([]);
 
@@ -24,7 +30,6 @@ const Contacto = () => {
           id: doc.id,
           ...doc.data(),
         }));
-        console.log(arrayData);
         setEmails(arrayData);
       } catch (error) {
         console.log(error);
@@ -36,7 +41,9 @@ const Contacto = () => {
   const [Email, setEmail] = useState({emailfrom: "", emailto: "",texta:''});
   
   const { emailfrom, emailto, texta } = Email;
-  
+
+  const today = moment().format('LLL');
+
   const HandleAdd = async (e) => {
       e.preventDefault();
       if (!emailfrom.trim() || !emailto.trim() || !texta.trim()) {
@@ -48,7 +55,7 @@ const Contacto = () => {
         name: emailfrom,
         email: emailto,
         text:texta,
-        fecha: Date.now(),
+        fecha: today,
       };
       const data = await db.collection("tarea").add(newEmail);
 
@@ -57,7 +64,6 @@ const Contacto = () => {
     } catch (error) {
       console.log(error);
     }
-    console.log(Email);
   };
 
   const handleChange = (e) => {

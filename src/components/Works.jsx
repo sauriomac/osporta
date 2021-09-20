@@ -5,8 +5,9 @@ import {
     VuePortafolio,
     ReactPortafolio,
     DjangoPortafolio,
-    FlaskPortafolio,
-    FullPortafolio
+    All
+    // FlaskPortafolio,
+    // FullPortafolio
 } from '../../src/data';
 
 const Works = () => {
@@ -22,15 +23,15 @@ const Works = () => {
         {
             id: "django",
             title: "Django"
-        },
-        {
-            id: "flask",
-            title: "Flask"
-        },
-        {
-            id: "full",
-            title: "Fullstack"
-        }
+         },
+        // {
+        //     id: "flask",
+        //     title: "Flask"
+        // },
+         {
+             id: "all",
+             title: "All"
+         }
     ]
     const [select, setselect] = useState("vue");
     const [data, setData] = useState([]);
@@ -46,14 +47,14 @@ const Works = () => {
             case "django":
                 setData(DjangoPortafolio);
                 break;
-            case "flask":
-                setData(FlaskPortafolio);
+            case "all":
+                setData(All);
                 break;
-            case "full":
-                setData(FullPortafolio);
-                break;
+            // case "full":
+            //     setData(FullPortafolio);
+            //     break;
             default:
-                setData(VuePortafolio);
+                setData(All);
 
 
         }

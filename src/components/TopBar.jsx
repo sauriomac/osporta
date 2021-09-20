@@ -28,7 +28,6 @@ const TopBar = ({ toggle }) => {
                 <a onClick={handleOpen} href="#banner" className="text-xs text-gray-50 text-current text-right mr-4  drop-shadow-xl opacity-90"><span>Home</span></a>
                 <a onClick={handleOpen} href="#Works" className="text-xs text-gray-50 text-current text-right ml-4 drop-shadow-xl opacity-90 "><span>Works</span></a>
                 <a onClick={handleOpen} href="#Contact" className="text-xs text-gray-50 text-current text-right ml-4 mr-2 drop-shadow-xl opacity-90 "><span>Contact</span></a>
-                
                 <a className="logo" href={MyPDF} download="Resume.pdf" ><FaRegFilePdf className=" text-white icons opacity-50 mr-2" /></a>
                 <a className="logo" href="https://github.com/sauriomac?tab=repositories"><FaGithub className=" text-white icons opacity-50 mr-2" /></a>
                 <a className="logo" href="https://www.linkedin.com/in/rodrigoespinozam/"><FaLinkedin className="text-white icons opacity-50 mr-2" /></a>
