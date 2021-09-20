@@ -210,7 +210,7 @@ export const All = [
     {
         "id": 4,
         "title": "React + taillwind",
-        "imgURL": "https://picsum.photos/300/200",
+        "imgURL": "https://res.cloudinary.com/sauriocode/image/upload/v1632178925/portafolio_eaidfd.jpg",
         "GitURL": "https://github.com/sauriomac/osporta",
         "WebURL": "https://sauriocode.com.ua"
    
