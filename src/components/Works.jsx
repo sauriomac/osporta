@@ -81,10 +81,10 @@ const Works = () => {
                         <img className=" hover:opacity-5 rounded-lg h-32 w-60" src={dat.imgURL} alt="" />
 
                         <div className="item rounded-lg ">
-                            <h1 className="text-sm font-mono">{dat.title}</h1>
+                            <h1 className="text-sm font-mono transition duration-500 ease-in-out">{dat.title}</h1>
                         
-                            <a className="mx-2" href={dat.GitURL}><FaGithub className="hover:text-yellow-300" /></a>
-                            <a href={dat.WebURL}><FaChrome className="hover:text-yellow-300" /></a>
+                            <a className="mx-2" href={dat.GitURL}><FaGithub className="transition duration-500 ease-in-out hover:text-yellow-300" /></a>
+                            <a href={dat.WebURL}><FaChrome className="  transition duration-500 ease-in-out hover:text-yellow-300" /></a>
                             
                         </div>
                     </div>
