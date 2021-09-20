@@ -33,30 +33,40 @@ const Contacto = () => {
     GetData();
   }, []);
 
-  const [Email, setEmail] = useState("");
-
+  const [Email, setEmail] = useState({emailfrom: "", emailto: "",texta:''});
+  
+  const { emailfrom, emailto, texta } = Email;
+  
   const HandleAdd = async (e) => {
-    e.preventDefault();
-    if (!Email.trim()) {
-      console.log("sin texto");
-      return;
-    }
+      e.preventDefault();
+      if (!emailfrom.trim() || !emailto.trim() || !texta.trim()) {
+          console.log("sin texto");
+        return;
+      }
     try {
       const newEmail = {
-        name: Email,
+        name: emailfrom,
+        email: emailto,
+        text:texta,
         fecha: Date.now(),
       };
       const data = await db.collection("tarea").add(newEmail);
 
       setEmails([...Emails, { id: data.id, ...newEmail }]);
-      setEmail("");
+      setEmail({emailfrom: "", emailto: "",texta:''});
     } catch (error) {
       console.log(error);
     }
     console.log(Email);
   };
 
-  const handleChange = (e) => setEmail(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEmail({
+      ...Email,
+      [name]: value,
+    });
+  }
 
   return (
     <div
@@ -91,8 +101,12 @@ const Contacto = () => {
                   </span>
                 </h5>
               </div>
+              <form onSubmit={HandleAdd}>
               <div className="px-5 py-3 flex items-center justify-between text-blue-400 border-b border-fuchsia-600 border-opacity-40 ">
                 <input
+                  name='emailfrom'
+                  value={emailfrom}
+                  onChange={handleChange}
                   placeholder="From: "
                   type="email"
                   className="w-full text-white text-xl resize-none outline-none h-6 bg-transparent"
@@ -102,7 +116,8 @@ const Contacto = () => {
                 <input
                   placeholder="Subject"
                   type="text"
-                  value={Email}
+                  name='emailto'
+                  value={emailto}
                   onChange={handleChange}
                   className=" font-bold	w-full py-4 text-white text-lg resize-none outline-none h-2 bg-transparent placeholder-opacity-100"
                 ></input>
@@ -110,6 +125,9 @@ const Contacto = () => {
               <div className="flex p-4">
                 <div className=" flex flex-col w-full">
                   <textarea
+                  name='texta'
+                  value={texta}
+                  onChange={handleChange}
                     placeholder="What's happening?"
                     className="w-full ml-0 text-white text-xl resize-none outline-none h-24 bg-transparent"
                   ></textarea>
@@ -118,16 +136,18 @@ const Contacto = () => {
               <div className=" justify-between py-6 px-4 border-t border-fuchsia-600 border-opacity-40">
                 <div>
                   <button
-                    onClick={HandleAdd}
+                    type='submit'
                     className=" shadow inline px-4 py-3 rounded-full font-bold text-white bg-red-600 cursor-pointer hover:from-pink-500 hover:to-yellow-500"
                   >
                     Send
                   </button>
                 </div>
               </div>
+              </form>
             </div>
           </div>
         </div>
+        
       ) : (
         <div className="contacto relative resize  h-full lg:w-7/12 sm:w-4/5 md:w-4/5  lg:mx-auto md:mx-auto sm:mx-auto rounded-lg bg-gray-50 bg-opacity-30 shadow-2xl ">
           <div className=" rounded-t-lg h-15 py-3 flex justify-start gap-1  items-center bg-gray-100 bg-opacity-30 ">
